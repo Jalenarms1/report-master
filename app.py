@@ -57,7 +57,7 @@ def upload_file():
             cursor.commit()
 
         file.save(file_path)
-        return jsonify(helper.get_excel_sheets_data(file_path))
+        return jsonify(helper.get_my_files(user_id))
 
     return 'No file provided', 400
 

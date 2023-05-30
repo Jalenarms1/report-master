@@ -24,6 +24,7 @@ class Filer {
 
     setCurrFile(id) {
         this.currFile =  this.myFiles.find(i => i.file_id == id)
+        console.log(this.currFile);
     }
 
     async get_my_files() {
@@ -38,9 +39,9 @@ class Filer {
         return data
     }
 
-    generateFileList() {
+    generateFileList(files) {
         reportList.innerHTML = ''
-        this.myFiles.forEach(item => {
+        files.forEach(item => {
             const li = document.createElement("li")
             li.classList.add("report-list-item")
             li.id = item.file_id
@@ -61,33 +62,28 @@ class Filer {
     }
 
     async saveFile() {
-        
         const file = inputFile.files[0];
         if (file) {
             const formData = new FormData();
             formData.append('file', file);
-        
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', '/upload', true);
-            xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) { // Ready state 4 means the request is complete
-                if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText); 
-                console.log(response); 
-                } else {
-                console.error('Error uploading file');
-                }
-            }
-            };
-            xhr.send(formData);
-        }
     
-        const updatedData = await this.get_my_files()
-
-        this.myFiles = [...updatedData]
-
-        this.generateFileList()
-        
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+    
+                if (response.ok) {
+                    const data = await response.json();
+                    this.myFiles = [...data];
+                    this.generateFileList(this.myFiles);
+                } else {
+                    console.error('Error uploading file');
+                }
+            } catch (error) {
+                console.error('Error uploading file:', error);
+            }
+        }
     }
 
     
@@ -122,8 +118,15 @@ fileInputBtn.addEventListener('click', () => {
     inputFile.click();
 });
 
-reportList.addEventListener("click", () => {
-
+reportList.addEventListener("click", (e) => {
+    if(e.target.classList.contains("report-list-item")) {
+        files.setCurrFile(e.target.id)
+        if (e.target.classList.contains("active")){
+            e.target.classList.remove("active")
+        } else {
+            e.target.classList.add("active")
+        }
+    }
 })
 
 
@@ -131,7 +134,7 @@ const onInit = async () => {
     const fileData = await files.get_my_files()
     files.setFiles(fileData)
     files.logFileData()
-    files.generateFileList()
+    files.generateFileList(fileData)
 }
 
 onInit()

@@ -1,89 +1,86 @@
 .table-wrapper {
-    width: 70%;
-    
-    overflow-x: auto;
-    margin-left: 350px;
-    margin-top: 3%;
-    
-    transition: width .5s ease-in-out, margin .5s ease-in-out;
-    padding-bottom: 5%;
-    border: 2px solid white;
+  width: 95%;
+  
+  overflow-x: auto;
+  margin-top: 3%;
+  padding-bottom: 5%;
+  border: 2px solid white;
 
-  }
+}
   
-  table {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 8px;
-    background-color: #888;
-    color: black;
-    border: 1px solid #ddd;
-    width: 200px;
-  }
-  th {
-    position: relative;
-    
-  }
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
 
-  .th-content{
-    display: flex;
-    justify-content: space-between;
-  }
+th, td {
+  padding: 8px;
+  background-color: #888;
+  color: black;
+  border: 1px solid #ddd;
+  width: 200px;
+}
+
+th {
+  position: relative;
   
-  th::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 8px;
-    cursor: col-resize;
-    background-color: #f4f4f4;
-  }
-  
-  thead th {
-    background-color: #f2f2f2;
-  }
-  
-  tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
+}
+
+.th-content{
+  display: flex;
+  justify-content: space-between;
+}
+
+th::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 8px;
+  cursor: col-resize;
+  background-color: #f4f4f4;
+}
+
+thead th {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
   
 
-  /* For Webkit browsers (Chrome, Safari) */
 .table-wrapper::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  .table-wrapper::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-  }
-  
-  .table-wrapper::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 5px;
-  }
-  
-  /* For Firefox */
-  .table-wrapper {
-    scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
-  }
-  
-  .table-wrapper::-moz-scrollbar {
-    width: 10px;
-  }
-  
-  .table-wrapper::-moz-scrollbar-track {
-    background-color: #f1f1f1;
-  }
-  
-  .table-wrapper::-moz-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 5px;
-  }
+  width: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+/* For Firefox */
+.table-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.table-wrapper::-moz-scrollbar {
+  width: 10px;
+}
+
+.table-wrapper::-moz-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.table-wrapper::-moz-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
   

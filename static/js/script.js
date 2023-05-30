@@ -6,27 +6,26 @@ const dataTableWrap = document.getElementById("data-table-wrap")
 const dashboardWrap = document.querySelector(".dashboard")
 
 openSidebarBtn.addEventListener("click", () => {
-    dataTableWrap.style.width = '70%'
-    dashboardWrap.style.marginLeft = '300px'
-    dataTableWrap.style.marginLeft = '350px'
+    
+    sidebar.style.width = '20%'
+    dashboardWrap.style.width = '80%'
+    
 
-    sideBarContent.classList.remove("hide")
-    sidebar.classList.add("open");
-    sidebar.classList.remove("closed")
+    
     openSidebarBtn.classList.toggle("hide")
     closeSidebarBtn.classList.toggle("hide")
+    
+    sideBarContent.classList.remove("hide")
 });
   
 closeSidebarBtn.addEventListener("click", () => {
-    dashboardWrap.style.marginLeft = '60px'
-    dataTableWrap.style.marginLeft = '100px'
+    dashboardWrap.style.width = '97%'
+    sidebar.style.width = '3%'
     
-    sidebar.classList.remove("open");
-    sidebar.classList.add("closed")
+    
     openSidebarBtn.classList.toggle("hide")
     closeSidebarBtn.classList.toggle("hide")
     sideBarContent.classList.add("hide")
-    dataTableWrap.style.width = '90%'
     
     
 });
