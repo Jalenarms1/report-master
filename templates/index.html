@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/table.css">
+  <script src="/static/js/script.js" defer></script>
+  <script src="/static/js/table.js" defer></script>
+  <script src="/static/js/files.js" defer></script>
+  <!-- Custom CSS -->
+  <style>
+    
+  </style>
+</head>
+
+<body>
+    <!-- Confirm file modal -->
+    <div class="modal " id="confirm-file-modal">
+        <div class="modal-content">
+            <div class="flex items-center">
+                <h2>Confirm</h2>
+                <i class="material-icons">gpp_maybe</i>
+            </div>
+          <p>Click confirm to add <span id="new-file-name"></span> to your reports.</p>
+          <div class="confirm-file-modal-footer">
+            <button id="file-confirmed" class="bg-success">Confirm</button>
+            <button id="file-confirm-close" class="bg-danger">Close</button>
+
+          </div>
+        </div>
+    </div>
+    <!--  -->
+    <div class="app-container">
+        
+        <div class="sidebar open" id="sidebar">
+            <div class="toggle-icon">
+                <i class="material-icons close-sidebar " id="close-sidebar-btn">arrow_back</i>
+                <i class="material-icons open-sidebar hide" id="open-sidebar-btn">menu</i>
+            </div>
+            <div class="sidebar-content " id="sidebar-content">
+
+                <div class="file-prompt">
+                    <h3 class="sb-header">Report Manager</h3>
+                    <button id="file-input-btn">New file</button>
+                    <input type="file" id="file-input" accept=".xls,.xlsx">
+                </div>
+                <div class="saved-files">
+                    <h6>Saved reports</h6>
+                    <ul class="report-list">
+                        <!-- Add a dialog modal that will pop up when a file gets selected from the file explorer -->
+                        <!-- Add a dialog tooltip to display list of settings for when the settings icons is clicked. Settings will include refresh, update report and remove -->
+                        <!-- <li class="report-list-item">
+                            <span >File 1</span>
+                            <div class="file-action-icons">
+                                <i class="material-icons cst-icon settings-icon" title="report_settings">settings</i>
+                                
+
+                            </div>
+                        
+                        </li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        <div class="dashboard">
+            <div class="dash-nav">
+                <div class="username-disp">
+                    <h5>{{username}}</h5>
+                    <i class="material-icons">account_circle</i>
+                </div>
+            </div>
+            <div class="dashboard-content">
+
+                <div class="table-wrapper" id="data-table-wrap">
+                    <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th class="tbl-col tbl-col1">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col2">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col3">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col4">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col5">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col6">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col7">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col8">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col9">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col10">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col11">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col12">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col13">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col14">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col15">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col16">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col17">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col18">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col19">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col20">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col21">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col22">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col23">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col24">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col25">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col26">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col27">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col28">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col29">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <th class="tbl-col tbl-col30">
+                                <div class="th-content">
+                                    <span>Column 1</span>
+                                    <button class="col-btn" >GO</button>
+
+                                </div>
+                            </th>
+                            <!-- Add more table headers as needed -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+              
+        </div>
+        
+    </div>
+
+  
+
+  
+</body>
+
+</html>
